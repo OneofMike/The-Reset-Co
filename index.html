@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Reset Co. offers cleaning and home organization in Lubbock and surrounding West Texas communities.">
+  <title>The Reset Co. | Cleaning &amp; Home Organization</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/reset-co-logo.jpg">
+  <style>
+    :root{
+      --bg:#f8f4e9;--paper:#fffef9;--ink:#3f4638;--muted:#5c696a;
+      --accent:#65794c;--accent-dark:#465c35;--line:#cbd4bd;--rose:#b9786d;
+      --gallery-bg:#faf9f5;--gallery-paper:#fffdf8;--olive:#6f805c;
+      --sage-wash:#edf1e6;--ivory-wash:#fffaf0;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:78px}
+    body{width:100%;margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.6}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-dark);outline-offset:3px}
+    .wrap{width:min(1100px,calc(100% - 36px));margin:auto}
+    .app-view{width:100%}.is-hidden{display:none!important}
+    /* Warm alternating surfaces and botanical linework stay decorative and out of content flow. */
+    #services{background:linear-gradient(180deg,#fffaf0 0%,#fffdf7 100%)}
+    .commercial-section{background:linear-gradient(135deg,#e8edde 0%,#edf1e6 100%)}
+    #area{background:linear-gradient(180deg,#fffaf0 0%,#f8f4e9 100%)}
+    #community{background:#e5ebdd}
+    #book{background:linear-gradient(180deg,#f2e8e2 0%,#f8f1e8 100%)}
+    #services:before,#area:after,#community:before,.gallery-hero:after,.gallery-section:before{content:"";position:absolute;width:72px;height:72px;border:1px solid rgba(83,100,67,.22);border-radius:70% 0 70% 0;transform:rotate(38deg);pointer-events:none}
+    #services,#area,#community,.gallery-hero,.gallery-section{position:relative;isolation:isolate}
+    #services:before{left:clamp(18px,5vw,72px);bottom:34px}
+    #area:after{right:clamp(18px,5vw,72px);top:35px}
+    #community:before{left:clamp(18px,5vw,72px);top:24px}
+    .gallery-hero:after{right:clamp(18px,6vw,80px);top:28px;width:66px;height:66px;border-color:rgba(83,100,67,.2)}
+    .gallery-section:before{left:clamp(18px,5vw,72px);bottom:45px;width:60px;height:60px}
+    .service-item,.commercial-card,.area-card,.booking-frame,.booking-form,.transformation{border:1px solid #aebb9f;border-radius:10px;box-shadow:0 14px 34px rgba(76,83,60,.12),0 3px 9px rgba(185,121,109,.07)}
+    .booking-frame{border:1px solid #a8786b;box-shadow:0 20px 48px rgba(76,83,60,.16),0 0 0 4px rgba(185,120,109,.10)}
+    .booking-form{background:linear-gradient(145deg,#fffef9 0%,#fff9ef 100%)}
+    .btn,.nav-cta,.brush-btn,.gallery-pill,.choice,.commercial-service{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+    .btn,.nav-cta,.brush-btn:before,.gallery-pill:before{box-shadow:0 5px 13px rgba(53,67,43,.18)}
+    .btn:hover,.nav-cta:hover,.brush-btn:hover,.gallery-pill:hover,.choice:hover,.commercial-service:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(53,67,43,.2);filter:saturate(1.05)}
+
+    header{position:sticky;top:0;z-index:50;background:rgba(250,247,238,.97);border-bottom:1px solid #d4d7c5;backdrop-filter:blur(16px)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;background:none;border:0;padding:0;color:var(--ink);font-family:Georgia,serif;font-size:21px;font-weight:700;letter-spacing:-.025em;text-align:left}
+    .brandmark{width:38px;height:38px;border-radius:50%;background:#fffef9;border:1px solid #84966f;object-fit:cover;display:block;flex:none}
+    
+    .links{display:flex;align-items:center;gap:clamp(16px,3vw,35px);font-size:14px;font-weight:650}
+    .nav-link{border:0;background:transparent;color:var(--ink);padding:6px 0}.nav-link:hover{color:var(--accent-dark)}
+    .mobile-menu-toggle{display:none;background:transparent;border:1px solid #d4d7c5;color:var(--ink);padding:8px 10px;border-radius:5px;line-height:1}
+    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(250,247,238,.98);border-bottom:1px solid #d4d7c5;padding:10px 18px 14px;box-shadow:0 12px 22px rgba(53,67,43,.12)}
+    .mobile-menu.open{display:grid;gap:2px}.mobile-menu button{width:100%;text-align:left;background:transparent;border:0;color:var(--ink);padding:11px 8px;font:inherit;font-size:14px;font-weight:650;border-radius:4px}.mobile-menu button:hover{background:#edf1e6}
+    @media(max-width:760px){.links{display:none}.mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center}.nav{position:relative}.homey-hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:22px}.homey-hero-grid>div:first-child{display:contents}.homey-title-wrap{order:1}.homey-visual{order:2;width:100%;min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;gap:0}.home-card{width:min(100%,430px);min-height:0;transform:none}.torn-note{align-self:flex-end;margin:10px max(0px,calc((100% - 430px)/2)) 0 0;max-width:calc(100% - 12px)}.homey-lead{order:3}.hero-services{order:4}.homey-actions{order:5}.homey-trust{order:6}}
+    .nav-cta{background:#465c35;color:#fff;padding:10px 21px;border-radius:5px;border:0}.nav-cta:hover{background:#354728}
+    section{padding:84px 0}
+    .eyebrow{text-transform:uppercase;color:var(--accent-dark);font-size:11px;letter-spacing:.19em;font-weight:900}
+    .section-head{text-align:center;margin:0 auto 46px}.section-head h2,h1,h3,.booking-titlebar strong{font-family:Georgia,serif;font-weight:500}
+    .section-head h2{font-size:clamp(36px,4vw,52px);letter-spacing:-.035em;line-height:1.1;margin:14px 0}.services-heading{text-align:center}.services-heading .eyebrow{font-size:10px;letter-spacing:.08em}.services-heading h2{font-size:clamp(34px,4.3vw,48px);letter-spacing:-.025em;margin:10px 0 20px;color:var(--ink)}.services-heading .reset-word{position:relative;display:inline-block;margin-left:.08em;color:var(--rose);font-style:normal;font-family:"Caveat","Segoe Script","Bradley Hand",cursive;z-index:0}.services-heading .reset-word:before{content:"";position:absolute;z-index:-1;left:-.12em;right:-.1em;bottom:.02em;height:.42em;background:#eadbd5;transform:rotate(-3deg);clip-path:polygon(4% 12%,96% 0,100% 75%,92% 100%,0 88%)}
+    .section-head p{font-size:16px;max-width:590px;color:var(--muted);margin:10px auto 0}
+
+    .homey-hero{position:relative;overflow:hidden;padding:70px 0 92px;background:radial-gradient(circle at 10% 12%,rgba(214,167,154,.14),transparent 25%),radial-gradient(circle at 90% 18%,rgba(102,116,81,.12),transparent 28%),linear-gradient(135deg,#fbf7ef 0%,#f6f0e4 48%,#edf0e3 100%)}
+    .homey-hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:58px;align-items:center}
+    .homey-kicker{font-size:11px;letter-spacing:.2em;font-weight:750;color:var(--accent-dark);margin-bottom:18px}
+    .homey-title-wrap{position:relative;display:inline-block;max-width:720px}.homey-mini-note{position:absolute;top:-10px;right:5px;transform:rotate(-4deg);font-family:"Caveat","Segoe Script","Bradley Hand",cursive;color:var(--rose);font-size:16px}
+    .homey-hero h1{margin:0;color:#3f4638;font-family:Georgia,serif;font-weight:400;font-size:clamp(52px,6.2vw,82px);line-height:1.02;letter-spacing:-.035em}.homey-hero h1 em{display:block;color:#b9786d;font-weight:400}.homey-hero h1 em.hero-script-line{font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:.78em;letter-spacing:-.045em;line-height:1.12}
+    .homey-lead{color:#5c625a;font-size:17px;line-height:1.5;max-width:580px;margin-top:28px}
+    .hero-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:720px;margin:20px 0 0;color:var(--accent-dark);font-size:14px;font-weight:750;line-height:1.25;letter-spacing:.01em}
+    .hero-service-link{display:flex;align-items:center;justify-content:center;min-height:48px;border:1px solid #b9c4ae;border-radius:7px;background:rgba(255,253,248,.78);color:inherit;padding:10px 12px;font:inherit;text-align:center;box-shadow:0 5px 14px rgba(63,70,56,.05);transition:transform .18s ease,border-color .18s ease,background .18s ease,color .18s ease}
+    .hero-service-link:hover{transform:translateY(-2px);border-color:var(--accent-dark);background:#edf1e6;color:var(--accent-dark)}
+    .homey-actions,.gallery-actions{display:flex;flex-wrap:wrap;gap:18px;margin:30px 0 32px}
+    .brush-btn,.btn,.gallery-pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 25px;border:1px solid var(--ink);border-radius:5px;font-weight:700}
+    .brush-btn{position:relative;border:0;font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:18px;isolation:isolate;background:transparent}.brush-btn:before,.gallery-pill:before{content:"";position:absolute;inset:1px -6px 0 -7px;z-index:-1;clip-path:polygon(2% 7%,96% 0,100% 16%,98% 82%,92% 95%,7% 100%,0 87%,3% 19%)}
+    .brush-btn{color:#fff}.brush-btn:before{background:#667451}.brush-light{color:#46543b}.brush-light:before{background:#f4e9df;border:1px solid #cba79c}
+    .btn-primary{background:#465c35;border-color:#465c35;color:#fff}.btn-secondary{background:transparent;color:var(--ink)}
+    .btn:hover,.brush-btn:hover,.gallery-pill:hover{transform:translateY(-2px)}
+    .homey-trust{display:grid;grid-template-columns:repeat(3,1fr);max-width:720px;border-top:1px solid rgba(72,84,62,.2);margin-top:18px}
+    .trust-sketch{padding:20px 20px 10px 0;min-height:112px}.trust-sketch+.trust-sketch{border-left:1px solid rgba(72,84,62,.18);padding-left:22px}
+    .trust-icon{display:block;color:#667451;font-size:29px;font-family:Georgia,serif;margin-bottom:5px}.trust-sketch strong{display:block;color:#24332f;font-family:Georgia,serif;font-size:17px;font-weight:500}.trust-sketch small{display:block;color:#767b72;margin-top:3px;line-height:1.45;font-size:11px}
+    .homey-visual{position:relative;min-height:540px;display:grid;place-items:center}.home-card{position:relative;width:min(430px,88%);min-height:460px;padding:30px 34px 33px;background:rgba(255,251,242,.96);border:1px solid #bec7ad;border-radius:49% 49% 8px 8px/19% 19% 8px 8px;box-shadow:0 28px 65px rgba(71,79,61,.16);transform:rotate(1.2deg);text-align:center}.home-card-topline{font-family:Georgia,serif;color:#24332f;font-size:15px;letter-spacing:.22em;margin-top:8px}.brand-logo-panel{display:block;width:min(100%,320px);height:auto;margin:18px auto 10px;border-radius:2px}.home-card-script{font-family:"Caveat","Segoe Script","Bradley Hand",cursive;color:var(--rose);font-size:26px}.home-card-copy{width:80%;margin:12px auto;color:#4f5b50;font-family:Georgia,serif;font-size:16px}
+    .torn-note{position:relative;justify-self:end;margin-top:-18px;margin-right:10px;width:168px;min-height:132px;background:#f8ece5;color:#4c5548;padding:21px 19px;transform:rotate(3deg);box-shadow:0 16px 28px rgba(70,77,60,.12)}.torn-note p{margin:0;font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:15px;line-height:1.48;color:#5c5d53}.note-heart{display:block;font-size:24px;color:var(--rose)}.note-leaf{display:block;text-align:right;font-size:28px;color:#667451}
+
+    #services{background:linear-gradient(180deg,var(--ivory-wash) 0%,#fffcf4 100%);position:relative;isolation:isolate}#services:after{content:"";position:absolute;right:clamp(18px,5vw,72px);top:42px;width:78px;height:78px;border:1px solid rgba(101,121,76,.18);border-radius:70% 0 70% 0;transform:rotate(38deg);pointer-events:none;z-index:-1}.service-family+.service-family{margin-top:68px}.service-family-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin:0 0 25px;padding:0 3px 15px;border-bottom:1px solid rgba(76,91,61,.18)}.service-family-head h3{font-size:34px;margin:2px 0}.service-family-head p{max-width:480px;margin:0;color:var(--rose);font-size:14px;font-family:"Caveat","Segoe Script","Bradley Hand",cursive}.service-family-script,.commercial-script{display:block;color:#b8796d;font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:20px}.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.specialty-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.service-item{background:#fffef9;border:1px solid #bfcbb2;border-radius:8px;box-shadow:0 16px 34px rgba(53,67,43,.11),0 2px 6px rgba(53,67,43,.05);transition:box-shadow .2s ease,transform .2s ease}.service-item:hover{box-shadow:0 20px 40px rgba(53,67,43,.14),0 3px 8px rgba(53,67,43,.06);transform:translateY(-2px)}.service-item.open{background:#f7f8ed;border-color:#6b8055}.service-toggle{width:100%;min-height:220px;background:transparent;border:0;color:var(--ink);display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:25px;position:relative}.service-icon{font-family:Georgia,serif;color:var(--accent-dark);font-size:35px;margin-bottom:19px}.service-title{font-family:Georgia,serif;font-weight:500;font-size:25px}.service-sub{font-size:14px;color:var(--muted);line-height:1.5;margin:10px 0 18px}.service-tag{background:#dfe8ce;color:#3e5630;border-radius:2px;font-size:11px;font-weight:750;padding:6px 9px;margin-top:auto}.chev{position:absolute;right:21px;bottom:25px;color:var(--accent-dark);font-weight:900;font-size:20px}.service-panel{max-height:0;overflow:hidden;transition:max-height .3s ease}.service-panel-inner{border-top:1px solid var(--line);padding:20px 24px 25px}.included{display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;margin:12px 0 16px}.included span{font-size:12px;color:var(--muted)}.included span:before{content:"✓ ";color:var(--accent-dark);font-weight:900}
+
+    .commercial-section{background:linear-gradient(135deg,#e7ead9 0%,#f5f0e4 55%,#f4e8e1 100%)}.commercial-card{display:grid;grid-template-columns:1.45fr .55fr;gap:42px;border:1px solid #bac6aa;background:rgba(255,252,245,.82);padding:46px;box-shadow:0 18px 45px rgba(55,70,45,.09)}.commercial-copy h2{font-family:Georgia,serif;font-size:clamp(38px,4.6vw,60px);margin:12px 0 15px;line-height:1.04}.commercial-copy>p{color:var(--muted)}.commercial-services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.commercial-service{appearance:none;text-align:left;border:1px solid #c7cfbb;background:#fffdf8;padding:19px 17px;color:var(--ink)}.commercial-service span{display:block;font-size:25px;color:var(--accent-dark);margin-bottom:15px}.commercial-service strong{display:block;font-family:Georgia,serif;font-size:19px;font-weight:500}.commercial-service small{display:block;margin-top:7px;color:var(--muted)}.commercial-note{background:#f3e8e1;padding:38px 30px;align-self:center;transform:rotate(1deg);color:#58604f}.commercial-note strong{display:block;font-family:Georgia,serif;font-size:25px;line-height:1.2;color:#3e4a3a}.commercial-note p{font-size:14px;line-height:1.7;color:#697064}
+
+    #testimonials{background:linear-gradient(180deg,#fffaf0 0%,#f7f2e8 100%);position:relative;overflow:hidden}
+    #testimonials:after{content:"♡";position:absolute;right:clamp(20px,6vw,86px);top:34px;color:rgba(185,120,109,.2);font-family:Georgia,serif;font-size:74px;line-height:1;pointer-events:none}
+    .testimonial-heading{margin-bottom:36px}.testimonial-heading h2{margin-bottom:10px}.testimonial-heading h2 span{display:block;color:var(--rose);font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:.7em;line-height:1.2;margin-top:5px}
+    .testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .testimonial-card{display:flex;flex-direction:column;min-height:290px;margin:0;padding:29px 27px;background:#fffef9;border:1px solid #bfcbb2;border-radius:9px;box-shadow:0 15px 34px rgba(53,67,43,.1)}
+    .testimonial-mark{color:var(--rose);font-family:Georgia,serif;font-size:52px;line-height:.7;margin-bottom:18px}
+    .testimonial-card blockquote{margin:0;color:#4f5b50;font-family:Georgia,serif;font-size:18px;line-height:1.55}
+    .testimonial-card figcaption{margin-top:auto;padding-top:24px;border-top:1px solid rgba(72,84,62,.16)}
+    .testimonial-card strong{display:block;color:var(--ink);font-size:14px}.testimonial-card small{display:block;margin-top:3px;color:var(--accent-dark);font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+
+    #area{background:linear-gradient(180deg,var(--sage-wash) 0%,#faf7ee 100%)}.area-shell{display:grid;grid-template-columns:.78fr 1.22fr;gap:60px;align-items:center}.area-shell h2{font-family:Georgia,serif;font-size:clamp(42px,4.4vw,58px);line-height:1.08;letter-spacing:-.035em;margin:0 0 18px;max-width:520px}.area-shell h2 em{color:var(--rose);font-weight:400;font-family:"Caveat","Segoe Script","Bradley Hand",cursive}.area-eyebrow{display:block;margin-bottom:24px}.area-rule{width:265px;max-width:75%;height:4px;margin:0 0 35px;background:var(--rose);opacity:.7;clip-path:polygon(0 30%,100% 0,100% 75%,0 100%)}.area-shell>div>p{color:var(--muted);font-size:17px;line-height:1.55;max-width:470px;margin:0 0 28px}.area-shell>div>.btn{min-width:350px;max-width:100%;min-height:66px;background:#667451;color:#fff;border:0;border-radius:0;box-shadow:none;font-family:Georgia,serif;font-style:italic;font-size:20px;clip-path:polygon(2% 10%,95% 0,100% 23%,97% 91%,8% 100%,0 75%)}.area-card{background:#e4ead7;border:1px solid #b9c8a6;padding:35px;box-shadow:0 18px 35px rgba(48,65,35,.1)}.dual-area-card{display:grid;grid-template-columns:1fr auto 1fr;gap:28px}.area-location-block strong{display:block;font-family:Georgia,serif;font-size:29px;margin:8px 0}.area-location-block p{font-size:13px;color:var(--muted)}.area-status{display:inline-block;padding:6px 9px;background:#f5eee4;color:#697756;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.area-status.expanding{background:#f1dfd7;color:#8f6257}.area-divider{width:1px;background:#bdc8b0}.area-towns{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}.area-towns span{padding:5px 11px;border:1px solid #b8c9aa;background:#fffdf5;font-size:11px}
+    #community{background:#dfe7cf;padding:72px 0}.community-panel{text-align:center;max-width:740px}.community-panel h2{font-family:Georgia,serif;font-size:clamp(40px,4vw,58px);line-height:1.05;margin:15px 0 23px}.community-panel h2 span{display:block;color:var(--rose);font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:.78em;font-style:italic;font-weight:400;line-height:1.15;margin-top:8px}.community-panel p{color:var(--muted);font-size:17px;max-width:650px;margin:0 auto 16px}
+
+    #how-it-works{background:#fffaf0;padding:74px 0}.steps-heading{margin-bottom:36px}.steps-heading h2 span{color:var(--rose);font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-weight:400}.steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid rgba(72,84,62,.2);border-bottom:1px solid rgba(72,84,62,.2)}.step-card{position:relative;padding:32px 30px 34px;min-height:210px}.step-card+.step-card{border-left:1px solid rgba(72,84,62,.18)}.step-number{display:block;margin-bottom:17px;color:var(--rose);font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:28px}.step-card h3{margin:0 0 9px;font-family:Georgia,serif;font-size:24px;font-weight:500}.step-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+    #book{background:#f4efe3}.booking-frame{width:min(880px,100%);margin:auto;border:1px solid #9eaf8d;border-radius:6px;box-shadow:0 26px 58px rgba(48,65,35,.17),0 4px 14px rgba(70,84,59,.08);overflow:hidden;position:relative}.booking-frame:before{content:"";position:absolute;right:20px;top:15px;width:28px;height:28px;border:1px solid rgba(211,177,162,.45);border-radius:70% 0 70% 0;transform:rotate(38deg);pointer-events:none;z-index:1}.booking-titlebar{background:linear-gradient(110deg,#3f4638,#526348 72%,#667451)}.booking-form{background:linear-gradient(150deg,#fffef9 0%,#fffdf6 100%)}.booking-titlebar{background:var(--ink);color:#fff;padding:25px 34px}.booking-titlebar strong{display:block;font-size:28px}.booking-titlebar span{font-size:13px;color:#e0eae5}.booking-form{padding:30px 34px 36px;background:#fffef9}.progress{display:flex;gap:8px;margin-bottom:28px}.progress span{height:7px;flex:1;border-radius:99px;background:#eee7ef}.progress span.active{background:var(--accent)}.form-step{display:none}.form-step.active{display:block}.step-label{font-size:13px;color:var(--muted);font-weight:800}.form-step h3{font-family:Georgia,serif;font-size:28px;margin:6px 0}.form-step p{color:var(--muted)}.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:17px 0;width:100%;min-height:320px;align-content:start}.choice{display:flex;align-items:center;width:100%;min-height:56px;border:1px solid #aebba1;border-radius:3px;padding:13px 15px;background:#fffef9;color:#3f4638;font-weight:750;text-align:left}.choice.active{background:#dfe9cf;border-color:#536b3d;box-shadow:inset 0 0 0 2px #536b3d}.field{display:grid;gap:7px;margin-bottom:15px}.field label{font-size:14px;font-weight:800}.field input,.field select,.field textarea{width:100%;border:1px solid #d7d4e0;border-radius:3px;padding:13px 14px;background:#fff;color:var(--ink);min-height:47px}.field textarea{min-height:85px}.quote-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.full-field{grid-column:1/-1}.form-nav{display:flex;justify-content:space-between;gap:12px;margin-top:24px}.booking-summary{border:1px solid #ddd4e4;border-radius:3px;padding:15px;margin-bottom:18px}.summary-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #eee7ef;padding:9px 0;font-size:14px}.summary-row:last-child{border:0}.summary-row span:first-child{color:var(--muted)}.quote-success{min-height:390px;display:grid;place-items:center;text-align:center;padding:30px}
+
+    footer{background:var(--ink);color:#fff;padding:58px 0 26px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}.footer-grid p,.footer-grid button,.footer-grid a{color:#e0e8e5}.footer-grid p{max-width:340px}.footer-grid h4{font-family:Georgia,serif;font-size:20px;font-weight:500;margin:0 0 14px}.footer-link{border:0;background:none;padding:0;display:block;margin:9px 0;text-align:left}.copyright{border-top:1px solid #62757d;margin-top:42px;padding-top:18px;font-size:12px;color:#d2cada;text-align:center}
+
+    .gallery-view{background:var(--gallery-bg)}.gallery-hero{padding:92px 0 60px;text-align:center;position:relative;overflow:hidden}.gallery-hero:before,.gallery-hero:after{content:"";position:absolute;border:1px solid rgba(103,124,84,.16);border-radius:50%;pointer-events:none}.gallery-hero:before{width:250px;height:250px;left:-110px;top:30px}.gallery-hero:after{width:190px;height:190px;right:-80px;bottom:-30px}.gallery-hero h1{font-family:Georgia,serif;font-size:0;line-height:1;letter-spacing:-.045em;margin:16px auto 18px;max-width:780px;min-height:clamp(78px,10vw,112px);display:grid;place-items:center}.gallery-script{font-family:"Caveat","Segoe Script","Bradley Hand",cursive;color:#ae756a;font-size:.72em;display:none;margin:0;transform:none}.gallery-eyebrow{font-size:clamp(21px,3.2vw,30px);letter-spacing:.2em}.gallery-title-script{display:block;color:#536443;font-family:Georgia,serif;font-style:normal;font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-.035em;text-transform:uppercase}.gallery-hero p{max-width:620px;margin:0 auto;color:#6b7064;font-size:17px}.gallery-section{padding:35px 0 95px}.gallery-grid{display:grid;gap:34px}.transformation{background:linear-gradient(145deg,#fffefb 0%,var(--gallery-paper) 100%);border:1px solid #aebb9f;border-radius:12px;padding:18px;box-shadow:0 16px 38px rgba(63,70,56,.13),0 3px 9px rgba(185,120,109,.07);position:relative;overflow:hidden}.transformation:after{content:"";position:absolute;right:19px;top:17px;width:23px;height:23px;border:1px solid rgba(103,124,84,.2);border-radius:70% 0 70% 0;transform:rotate(38deg);pointer-events:none}.transformation h2{position:relative}.transformation h2{font-family:Georgia,serif;font-size:30px;font-weight:500;margin:2px 0 16px;text-align:center}.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}.gallery-photo{position:relative;overflow:hidden;border-radius:17px;background:#e9eadf;aspect-ratio:4/3;margin:0}.gallery-photo img{width:100%;height:100%;object-fit:cover;display:block}.gallery-label{position:absolute;left:14px;top:14px;padding:8px 14px;border-radius:999px;background:rgba(255,253,248,.94);border:1px solid rgba(83,100,67,.3);font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase;color:#536443;box-shadow:0 5px 18px rgba(30,40,25,.12)}.gallery-label.after{background:#536443;border-color:#536443;color:#fff}.gallery-cta{padding:76px 0;background:linear-gradient(135deg,#e7ead9,#f5f0e4 55%,#f4e8e1);text-align:center}.gallery-cta h2{font-family:Georgia,serif;font-size:clamp(34px,4vw,50px);font-weight:500;margin:0 0 12px}.gallery-cta p{max-width:560px;margin:0 auto 25px;color:#6b7064}.gallery-actions{justify-content:center;margin:0}.gallery-pill{position:relative;border:0;background:transparent;color:#fff;font-family:"Caveat","Segoe Script","Bradley Hand",cursive;font-size:18px;isolation:isolate}.gallery-pill:before{background:#667451}.gallery-pill.secondary{color:#46543b}.gallery-pill.secondary:before{background:#f4e9df;border:1px solid #cba79c}.gallery-footer{padding:38px 0}.gallery-footer-row{display:flex;justify-content:space-between;align-items:center;gap:24px}.gallery-footer p{margin:0;color:#e5e9df;font-size:13px}.gallery-footer button{font-size:13px}
+
+    @media(max-width:900px){.homey-hero-grid,.area-shell{grid-template-columns:1fr;gap:36px}.homey-visual{min-height:480px}.commercial-card{grid-template-columns:1fr;padding:32px}.commercial-services{grid-template-columns:1fr 1fr}.specialty-grid{grid-template-columns:1fr 1fr}.testimonial-grid{grid-template-columns:1fr}.testimonial-card{min-height:0}.steps-grid{grid-template-columns:1fr}.step-card{min-height:0;padding:26px 12px}.step-card+.step-card{border-left:0;border-top:1px solid rgba(72,84,62,.18)}.dual-area-card{grid-template-columns:1fr}.area-divider{width:100%;height:1px}}
+    @media(max-width:600px){.wrap{width:min(100% - 32px,1100px)}section{padding:66px 0}.nav{min-height:68px}.brand{font-size:17px}.links .nav-link{display:none}.nav-cta{font-size:12px;padding:8px 12px}.homey-hero{padding:48px 0 72px}.homey-mini-note{position:static;display:block;margin:0 0 10px}.homey-hero h1{font-size:clamp(45px,13vw,60px)}.homey-lead{font-size:15.5px;margin-top:0}.hero-services{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:0;font-size:12.5px;line-height:1.25}.hero-service-link{min-height:50px;padding:9px 8px}.brush-btn{width:100%}.homey-trust{grid-template-columns:1fr}.trust-sketch,.trust-sketch+.trust-sketch{padding:15px 0!important;min-height:auto;border-left:0;border-bottom:1px solid rgba(72,84,62,.16)}.homey-visual{min-height:405px}.home-card{width:92%;min-height:390px;padding:23px}.brand-logo-panel{width:min(100%,265px)}.service-family-head{align-items:flex-start;flex-direction:column;gap:8px}.service-grid,.specialty-grid,.commercial-services,.choice-grid,.quote-contact-grid{grid-template-columns:1fr}.service-family+.service-family{margin-top:48px}.service-toggle{min-height:190px}.included{grid-template-columns:1fr}.full-field{grid-column:auto}.booking-titlebar,.booking-form{padding:21px}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.footer-grid>div:first-child{grid-column:1/-1}.gallery-hero{padding:70px 0 45px}.gallery-section{padding-top:18px}.transformation{padding:12px;border-radius:18px}.transformation h2{font-size:25px;margin-bottom:12px}.pair{grid-template-columns:1fr;gap:10px}.gallery-footer-row{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){.broom-swing{animation:none}.service-panel{transition:none}}
+  </style>
+  </head>
+ <body>
+  <header>
+   <div class="wrap nav">
+    <button class="brand" type="button" data-action="home-top" aria-label="The Reset Co. home"> <span >The Reset Co.</span> </button>
+    <nav class="links" aria-label="Main navigation">
+     <button type="button" class="nav-link" data-action="home-section" data-target="services">Services</button> <button type="button" class="nav-link" data-action="home-section" data-target="commercial">Commercial</button> <button type="button" class="nav-link" data-action="gallery-top">Gallery</button> <button type="button" class="nav-link" data-action="home-section" data-target="area">Service Area</button> <button type="button" class="nav-cta" data-action="home-section" data-target="book">Request a Quote</button>
+    </nav><button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+     <button type="button" data-action="home-section" data-target="services">Services</button><button type="button" data-action="home-section" data-target="commercial">Commercial</button><button type="button" data-action="gallery-top">Gallery</button><button type="button" data-action="home-section" data-target="area">Service Area</button><button type="button" data-action="home-section" data-target="book">Request a Quote</button>
+    </nav>
+   </div>
+  </header>
+  <main id="homeView" class="app-view">
+   <section class="homey-hero">
+    <div class="wrap homey-hero-grid">
+     <div>
+      <div class="homey-kicker">
+       RESIDENTIAL &amp; COMMERCIAL CLEANING · HOME ORGANIZATION · WEST TEXAS
+      </div>
+      <div class="homey-title-wrap">
+       <h1>Calm, cared-for<br><em class="hero-script-line">spaces for fresh starts.</em></h1>
+      </div>
+      <p class="homey-lead">Thoughtful cleaning and organization for real life — creating homes and workplaces that feel peaceful, functional, and easier to breathe in.</p>
+      <div class="hero-services" aria-label="Main services">
+       <button class="hero-service-link" type="button" data-action="home-section" data-target="services">Standard Cleaning</button>
+       <button class="hero-service-link" type="button" data-action="home-section" data-target="services">Deep Cleaning</button>
+       <button class="hero-service-link" type="button" data-action="home-section" data-target="services">Recurring Cleaning</button>
+       <button class="hero-service-link" type="button" data-action="home-section" data-target="services">Move-In/Out</button>
+       <button class="hero-service-link" type="button" data-action="home-section" data-target="commercial">Commercial Cleaning</button>
+       <button class="hero-service-link" type="button" data-action="home-section" data-target="services">Home Organization</button>
+      </div>
+      <div class="homey-actions">
+       <button class="brush-btn" type="button" data-action="home-section" data-target="book">Request a Quote</button> <button class="brush-btn brush-light" type="button" data-action="home-section" data-target="services">View Services</button>
+      </div>
+      <div class="homey-trust">
+       <div class="trust-sketch"><span class="trust-icon">⌂</span><strong>Serving Lubbock</strong><small>+ surrounding communities</small>
+       </div>
+       <div class="trust-sketch"><span class="trust-icon">♡</span><strong>Care first</strong><small>Kind, dependable, detail-focused</small>
+       </div>
+       <div class="trust-sketch"><span class="trust-icon">✓</span><strong>Fully insured</strong><small>Professional care with peace of mind</small>
+       </div>
+      </div>
+     </div>
+     <div class="homey-visual">
+      <div class="home-card">
+       <div class="home-card-topline">
+        THE RESET CO.
+       </div><img class="brand-logo-panel" loading="lazy" src="assets/reset-co-logo.jpg" alt="The Reset Co. logo">
+       <div class="home-card-script">
+        Clean. Organize. Reset.
+       </div>
+       <div class="home-card-copy">
+        A clean home can be the start of a fresh beginning.
+       </div>
+      </div>
+      <div class="torn-note"><span class="note-heart">♡</span>
+       <p>Because everyone deserves a home that feels like home.</p><span class="note-leaf">⌁</span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="services">
+    <div class="wrap">
+     <div class="section-head services-heading">
+      <div class="eyebrow">
+       Our services
+      </div>
+      <h2>Clean. Organize. <span class="reset-word">Reset.</span></h2>
+      <p>From everyday upkeep to bigger transitions, choose the kind of support your space needs.</p>
+     </div>
+     <div class="service-family">
+      <div class="service-family-head">
+       <div><span class="service-family-script">For home</span>
+        <h3>Residential Cleaning</h3>
+       </div>
+      </div>
+      <div class="service-grid" id="residentialServices">
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Standard Cleaning" aria-expanded="false"><span class="service-icon">⌂</span><span class="service-title">Standard Cleaning</span><span class="service-sub">Reliable everyday cleaning to keep your home feeling fresh and cared for.</span><span class="service-tag">Everyday care</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>A thoughtful home refresh</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Standard Cleaning">Request a Quote</button></div></div></div>
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Deep Cleaning" aria-expanded="false"><span class="service-icon">✧</span><span class="service-title">Deep Cleaning</span><span class="service-sub">A detailed top-to-bottom refresh for spaces that need extra attention.</span><span class="service-tag">Detailed reset</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>What a deep clean can cover</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Deep Cleaning">Request a Quote</button></div></div></div>
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Recurring Cleaning" aria-expanded="false"><span class="service-icon">◌</span><span class="service-title">Recurring Cleaning</span><span class="service-sub">Consistent care that keeps your home feeling reset week after week.</span><span class="service-tag">Weekly · bi-weekly · monthly</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>Keep the calm going</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Recurring Cleaning">Request a Quote</button></div></div></div>
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Move-In / Move-Out" aria-expanded="false"><span class="service-icon">↔</span><span class="service-title">Move-In / Move-Out</span><span class="service-sub">A fresh start for the home you’re entering or the one you’re leaving.</span><span class="service-tag">Transition cleaning</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>For a smoother transition</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Move-In / Move-Out">Request a Quote</button></div></div></div>
+      </div>
+     </div>
+     <div class="service-family">
+      <div class="service-family-head">
+       <div><span class="service-family-script">A little extra support</span>
+        <h3>Specialty Services</h3>
+       </div>
+       <p>Support for turnovers, organization, postpartum care, and the details that make a space easier to live in.</p>
+      </div>
+      <div class="service-grid specialty-grid" id="specialtyServices">
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Airbnb / Turnovers" aria-expanded="false"><span class="service-icon">◇</span><span class="service-title">Airbnb / Turnovers</span><span class="service-sub">Guest-ready spaces, handled with care between stays.</span><span class="service-tag">Guest-ready reset</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>Ready for the next arrival</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Airbnb / Turnovers">Request a Quote</button></div></div></div>
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Postpartum Reset" aria-expanded="false"><span class="service-icon">♡</span><span class="service-title">Postpartum Reset</span><span class="service-sub">Gentle household support for new moms during a season when a little help can mean everything.</span><span class="service-tag">Care for new moms</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>Support that lightens the load</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Postpartum Reset">Request a Quote</button></div></div></div>
+       <div class="service-item"><button class="service-toggle" type="button" data-service="Home Organization" aria-expanded="false"><span class="service-icon">▦</span><span class="service-title">Home Organization</span><span class="service-sub">Functional spaces and a little more room to breathe.</span><span class="service-tag">Organize · simplify · reset</span><span class="chev">⌄</span></button><div class="service-panel"><div class="service-panel-inner"><strong>Make space for what matters</strong><div class="included"><span>Kitchen and bathroom care</span><span>Floors and surfaces</span><span>Thoughtful detail work</span><span>Customized support</span></div><button class="btn btn-primary book-service" type="button" data-service="Home Organization">Request a Quote</button></div></div></div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="commercial" class="commercial-section">
+    <div class="wrap">
+     <div class="commercial-card">
+      <div class="commercial-copy">
+       <div class="eyebrow">
+        Commercial cleaning
+       </div><span class="commercial-script">For the spaces where business happens ♡</span>
+       <h2>Reliable care for your workplace.</h2>
+       <p>Dependable, detail-focused cleaning for offices, businesses, and post-construction spaces.</p>
+       <div class="commercial-services" id="commercialServices">
+        <button class="commercial-service book-service" type="button" data-service="Commercial Cleaning"><span>▣</span><strong>Commercial Cleaning</strong><small>Recurring or custom cleaning for business spaces.</small></button>
+        <button class="commercial-service book-service" type="button" data-service="Office Cleaning"><span>⌂</span><strong>Office Cleaning</strong><small>Professional upkeep for offices and shared workspaces.</small></button>
+        <button class="commercial-service book-service" type="button" data-service="Post-Construction Cleaning"><span>⌁</span><strong>Post-Construction Cleaning</strong><small>Final cleaning and detail work after a project is complete.</small></button>
+       </div><button class="btn btn-primary" type="button" data-action="home-section" data-target="book">Request a Quote</button>
+      </div>
+      <div class="commercial-note">
+       <div style="font-size:31px;color:#b8796d">
+        ♡
+       </div><strong>Reliable commercial cleaning tailored to your business, schedule, and facility needs.</strong>
+       <p>Clear communication, thoughtful service, and dependable care from the first conversation through the final walkthrough.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="testimonials" aria-labelledby="testimonials-title">
+    <div class="wrap">
+     <div class="section-head testimonial-heading">
+      <div class="eyebrow">Client experiences</div>
+      <h2 id="testimonials-title">Kind words from<span>cared-for homes.</span></h2>
+      <p>Real recommendations shared by Reset Co. clients.</p>
+     </div>
+     <div class="testimonial-grid">
+      <figure class="testimonial-card">
+       <div class="testimonial-mark" aria-hidden="true">“</div>
+       <blockquote>The price was right and the clean was great! Everything looked great and clean.</blockquote>
+       <figcaption><strong>Rachel Carruth</strong><small>Move-out cleaning</small></figcaption>
+      </figure>
+      <figure class="testimonial-card">
+       <div class="testimonial-mark" aria-hidden="true">“</div>
+       <blockquote>Everything looks spotless, organized, and fresh. She was professional, thorough, and paid attention to every detail.</blockquote>
+       <figcaption><strong>Darian Collins</strong><small>Home cleaning</small></figcaption>
+      </figure>
+      <figure class="testimonial-card">
+       <div class="testimonial-mark" aria-hidden="true">“</div>
+       <blockquote>She’s reliable, trustworthy, and does an absolute fantastic job. I will be using her service going forward for my bi-weekly clean.</blockquote>
+       <figcaption><strong>Samantha OsunaArce</strong><small>Recurring cleaning</small></figcaption>
+      </figure>
+     </div>
+    </div>
+   </section>
+   <section id="area">
+    <div class="wrap area-shell">
+     <div>
+      <div class="eyebrow area-eyebrow">
+       Locally rooted
+      </div>
+      <h2>Serving Lubbock<br><em>&amp; growing into</em><br>
+        Fort Worth.</h2>
+      <div class="area-rule" aria-hidden="true"></div>
+      <p>Rooted in Lubbock and surrounding communities, with availability expanding into Fort Worth.</p><a class="btn btn-secondary" href="tel:8067892615">Call or Text 806-789-2615</a>
+     </div>
+     <div class="area-card dual-area-card">
+      <div class="area-location-block"><span class="area-status">Current service area</span><strong>Lubbock, TX</strong>
+       <p>Residential, specialty, commercial, office, and post-construction cleaning.</p>
+       <div class="area-towns"><span>Lubbock</span><span>Wolfforth</span><span>Shallowater</span><span>Slaton</span><span>Levelland</span>
+       </div>
+      </div>
+      <div class="area-divider"></div>
+      <div class="area-location-block"><span class="area-status expanding">Expanding service area</span><strong>Fort Worth, TX</strong>
+       <p>Planning for residential and commercial availability as The Reset Co. expands into the area.</p>
+       <div class="area-towns"><span>Fort Worth</span><span>DFW area</span><span>Commercial inquiries welcome</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="community">
+    <div class="wrap community-panel">
+     <div class="eyebrow">
+      Giving back
+     </div>
+     <h2>Resetting homes.<span>Restoring hope.</span></h2>
+     <p>The Reset Co. occasionally offers discounted cleaning to people navigating difficult seasons.<br><br>
+       If someone you know could use support, call or text to learn more.</p><a class="btn btn-secondary" href="tel:8067892615">Call or Text 806-789-2615</a>
+    </div>
+   </section>
+   <section id="how-it-works" aria-labelledby="steps-title">
+    <div class="wrap">
+     <div class="section-head steps-heading">
+      <div class="eyebrow">How it works</div>
+      <h2 id="steps-title">Your reset, <span>made simple.</span></h2>
+     </div>
+     <div class="steps-grid">
+      <article class="step-card">
+       <span class="step-number">01</span>
+       <h3>Choose your service</h3>
+       <p>Select the type of cleaning or organization your space needs.</p>
+      </article>
+      <article class="step-card">
+       <span class="step-number">02</span>
+       <h3>Tell us about your space</h3>
+       <p>Share the property details, preferred date, and contact information.</p>
+      </article>
+      <article class="step-card">
+       <span class="step-number">03</span>
+       <h3>We’ll follow up</h3>
+       <p>The Reset Co. confirms the details and helps arrange your service.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="book">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="eyebrow">
+       Ready when you are
+      </div>
+      <h2>Request a quote.</h2>
+      <p>Tell us what you need and share a few details about your space so we can understand your request and follow up with you.</p>
+     </div>
+     <div class="booking-frame">
+      <div class="booking-titlebar"><strong>Let’s learn about your space.</strong><span>Share a few details about your space and what you’re looking for.</span>
+      </div>
+      <form class="booking-form" id="quoteRequestForm" novalidate="">
+       <div class="progress"><span class="active"></span><span></span><span></span><span></span>
+       </div>
+       <div class="form-step active" data-step="0">
+        <div class="step-label">
+         STEP 1 OF 4
+        </div>
+        <h3>What kind of reset do you need?</h3>
+        <p>Choose the service that best matches what you’re looking for.</p>
+        <div class="choice-grid" id="serviceChoices"></div>
+        <div class="form-nav"><span></span><button class="btn btn-primary next" type="button">Continue →</button>
+        </div>
+       </div>
+       <div class="form-step" data-step="1">
+        <div class="step-label">
+         STEP 2 OF 4
+        </div>
+        <h3>Tell us about the space.</h3>
+        <p id="serviceQuestionIntro"></p>
+        <div id="dynamicServiceQuestions"></div>
+        <div class="form-nav"><button class="btn btn-secondary back" type="button">← Back</button><button class="btn btn-primary next" type="button">Continue →</button>
+        </div>
+       </div>
+       <div class="form-step" data-step="2">
+        <div class="step-label">
+         STEP 3 OF 4
+        </div>
+        <h3>How can we reach you?</h3>
+        <p>Share your contact information and preferred service date so we can follow up with you.</p>
+        <div class="quote-contact-grid">
+         <div class="field"><label for="quoteName">Name</label><input id="quoteName" autocomplete="name" placeholder="Your name" required="">
+         </div>
+         <div class="field"><label for="quotePhone">Phone</label><input id="quotePhone" autocomplete="tel" placeholder="(555) 555-5555" required="">
+         </div>
+         <div class="field"><label for="quoteEmail">Email</label><input id="quoteEmail" type="email" autocomplete="email" placeholder="you@example.com" required="">
+         </div>
+         <div class="field"><label for="quoteAddress">Address / ZIP Code</label><input id="quoteAddress" autocomplete="street-address" placeholder="Street address or ZIP code" required="">
+         </div>
+         <div class="field"><label for="quoteDate">Preferred Date</label><input id="quoteDate" type="date">
+         </div>
+         <div class="field"><label for="quoteTime">Preferred Time</label><select id="quoteTime"><option value="">Select a time</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Flexible</option></select>
+         </div>
+         <div class="field"><label for="quoteFrequency">Cleaning Frequency</label><select id="quoteFrequency"><option value="">Select frequency</option><option>One-time</option><option>Weekly</option><option>Bi-weekly</option><option>Monthly</option><option>Not sure yet</option></select>
+         </div>
+         <div class="field full-field"><label for="quoteRequests">Special Requests</label><textarea id="quoteRequests" placeholder="Anything else you'd like us to know?"></textarea>
+         </div>
+        </div>
+        <div class="form-nav"><button class="btn btn-secondary back" type="button">← Back</button><button class="btn btn-primary next" type="button">Review Request →</button>
+        </div>
+       </div>
+       <div class="form-step" data-step="3">
+        <div class="step-label">
+         STEP 4 OF 4
+        </div>
+        <h3>Review your quote request.</h3>
+        <div class="booking-summary">
+         <div class="summary-row"><span>Service</span><strong id="summaryService"></strong>
+         </div>
+         <div class="summary-row"><span>Preferred date</span><strong id="summaryDate"></strong>
+         </div>
+         <div class="summary-row"><span>Preferred time</span><strong id="summaryTime"></strong>
+         </div>
+         <div class="summary-row"><span>Frequency</span><strong id="summaryFrequency"></strong>
+         </div>
+        </div>
+        <div class="form-nav"><button class="btn btn-secondary back" type="button">← Back</button><button class="btn btn-primary" id="submitQuote" type="submit">Send Quote Request</button>
+        </div>
+       </div>
+      </form>
+     </div>
+    </div>
+   </section>
+   <footer>
+    <div class="wrap">
+     <div class="footer-grid">
+      <div><button class="brand" type="button" data-action="home-top"><span>The Reset Co.</span></button>
+       <p>Clean spaces. Clear minds. Fresh starts. Serving Lubbock and expanding into Fort Worth.</p>
+      </div>
+      <div>
+       <h4>Explore</h4><button class="footer-link" type="button" data-action="home-section" data-target="services">Services</button><button class="footer-link" type="button" data-action="home-section" data-target="commercial">Commercial</button><button class="footer-link" type="button" data-action="gallery-top">Gallery</button><button class="footer-link" type="button" data-action="home-section" data-target="area">Service Area</button>
+      </div>
+      <div>
+       <h4>Get in touch</h4>
+       <div style="display:flex;flex-direction:column;align-items:flex-start">
+        <a href="tel:8067892615">806-789-2615</a><a href="https://www.facebook.com/TheResetco806" target="_blank" rel="noopener noreferrer">Facebook</a>
+       </div><button class="footer-link" type="button" data-action="home-section" data-target="book" style="margin-top:4px">Request a Quote</button>
+      </div>
+     </div>
+     <div class="copyright">
+      © 2026 The Reset Co. · Cleaning &amp; Home Organization
+     </div>
+    </div>
+   </footer>
+  </main>
+  <main id="galleryView" class="app-view gallery-view is-hidden">
+   <section class="gallery-hero">
+    <div class="wrap">
+     <div class="eyebrow gallery-eyebrow"></div>
+     <h1><span class="gallery-script gallery-title-script">BEFORE &amp; AFTER GALLERY</span></h1>
+     <p >Take a look at a few spaces refreshed by The Reset Co. — thoughtful cleaning, organization, and attention to the details that make a space feel reset.</p>
+    </div>
+   </section>
+   <section class="gallery-section">
+    <div class="wrap">
+     <div class="gallery-grid">
+      <article class="transformation">
+       <h2 >Bedroom Reset</h2>
+       <div class="pair">
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/bedroom-before.jpeg" alt="Bedroom before cleaning and organization">
+         <figcaption class="gallery-label">Before</figcaption>
+        </figure>
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/bedroom-after.jpeg" alt="Bedroom after cleaning and organization">
+         <figcaption class="gallery-label after">After</figcaption>
+        </figure>
+       </div>
+      </article>
+      <article class="transformation">
+       <h2 >Blinds Cleaning</h2>
+       <div class="pair">
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/blinds-before.jpeg" alt="Window blinds before cleaning">
+         <figcaption class="gallery-label">Before</figcaption>
+        </figure>
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/blinds-after.jpeg" alt="Sunlit room corner featuring blinds and a delicate curtain casting shadows">
+         <figcaption class="gallery-label after">After</figcaption>
+        </figure>
+       </div>
+      </article>
+      <article class="transformation">
+       <h2 >Closet Organization</h2>
+       <div class="pair">
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/closet-before.jpeg" alt="Closet before organization with clothes and items on the floor">
+         <figcaption class="gallery-label">Before</figcaption>
+        </figure>
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/closet-after.jpeg" alt="Closet after organization with clothing neatly arranged">
+         <figcaption class="gallery-label after">After</figcaption>
+        </figure>
+       </div>
+      </article>
+      <article class="transformation">
+       <h2 >Window Cleaning</h2>
+       <div class="pair">
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/window-before.jpeg" alt="Vertical interior shot of closed window blinds creating a moody atmosphere">
+         <figcaption class="gallery-label">Before</figcaption>
+        </figure>
+        <figure class="gallery-photo"><img  loading="lazy" src="assets/window-after.jpeg" alt="A home interior featuring a window with curtains, blinds, and potted plants">
+         <figcaption class="gallery-label after">After</figcaption>
+        </figure>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="gallery-cta">
+    <div class="wrap">
+     <h2 >Ready for your own reset?</h2>
+     <p >Tell us what your space needs and The Reset Co. will follow up with you about your request.</p>
+     <div class="gallery-actions">
+      <button type="button" class="gallery-pill" data-action="home-section" data-target="book">Request a Quote</button> <button type="button" class="gallery-pill secondary" data-action="home-top">Back to Home</button>
+     </div>
+    </div>
+   </section>
+   <footer class="gallery-footer">
+    <div class="wrap gallery-footer-row">
+     <p >© The Reset Co. · Cleaning &amp; Home Organization</p><button type="button" class="footer-link" data-action="home-top">Back to Home</button>
+    </div>
+   </footer>
+  </main>
+  <script>
+    const appState = { view: "home", step: 0, service: "Deep Cleaning", answers: {} };
+    const names = ["Standard Cleaning","Deep Cleaning","Recurring Cleaning","Move-In / Move-Out","Airbnb / Turnovers","Home Organization","Postpartum Reset","Commercial Cleaning","Office Cleaning","Post-Construction Cleaning"];
+    const symbols = ["⌂","✧","◌","↔","◇","▦","♡","▣","⌂","⌁"];
+    const questions = {
+      "Standard Cleaning":["Approximate home size?","How many bedrooms and bathrooms?"],
+      "Deep Cleaning":["Approximate home size?","Which areas need the most attention?"],
+      "Recurring Cleaning":["Approximate home size?","How often would you like service?"],
+      "Move-In / Move-Out":["Is the home vacant or occupied?","Approximate home size?"],
+      "Airbnb / Turnovers":["How many bedrooms and bathrooms?","How often are turnovers needed?"],
+      "Home Organization":["Which rooms or areas need organizing?","What is your main organizing goal?"],
+      "Postpartum Reset":["What household support would help most?","When would you like support to begin?"],
+      "Commercial Cleaning":["What type of business or property is it?","Approximate square footage?"],
+      "Office Cleaning":["Approximate square footage?","How many days per week is service needed?"],
+      "Post-Construction Cleaning":["Approximate project size?","What stage is the project in?"]
+    };
+
+    const form = document.getElementById("quoteRequestForm");
+    const homeView = document.getElementById("homeView");
+    const galleryView = document.getElementById("galleryView");
+
+    function scrollToTarget(target) {
+      requestAnimationFrame(() => {
+        if (target === "top") window.scrollTo({ top: 0, behavior: "smooth" });
+        else {
+          const section = document.getElementById(target);
+          if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
+
+    function setView(view, target = "top") {
+      appState.view = view;
+      homeView.classList.toggle("is-hidden", view !== "home");
+      galleryView.classList.toggle("is-hidden", view !== "gallery");
+      scrollToTarget(target);
+    }
+
+
+    function renderChoices() {
+      document.getElementById("serviceChoices").innerHTML = names.map((name, index) =>
+        `<button type="button" class="choice ${name === appState.service ?"active" : ""}" aria-pressed="${name === appState.service}" data-service="${name}">${symbols[index]} ${name}</button>`
+      ).join("");
+    }
+
+    function questionsForService() {
+      const currentQuestions = questions[appState.service] || questions["Deep Cleaning"];
+      document.getElementById("serviceQuestionIntro").textContent = `A few details about your ${appState.service.toLowerCase()} request will help us prepare.`;
+      document.getElementById("dynamicServiceQuestions").innerHTML =
+        currentQuestions.map((question, index) => `<div class="field"><label for="dynamic${index}">${question}</label><input id="dynamic${index}" placeholder="Your answer"></div>`).join("") +
+        `<div class="field"><label for="detailsNote">Anything else we should know?</label><textarea id="detailsNote" placeholder="Your priorities, timing, or special requests"></textarea></div>`;
+    }
+
+    function showStep(step) {
+      appState.step = Math.max(0, Math.min(3, step));
+      [...form.querySelectorAll(".form-step")].forEach((el, index) => el.classList.toggle("active", index === appState.step));
+      [...form.querySelectorAll(".progress span")].forEach((el, index) => el.classList.toggle("active", index <= appState.step));
+      if (appState.step === 3) {
+        const value = id => document.getElementById(id).value || "Not selected";
+        document.getElementById("summaryService").textContent = appState.service;
+        document.getElementById("summaryDate").textContent = value("quoteDate");
+        document.getElementById("summaryTime").textContent = value("quoteTime");
+        document.getElementById("summaryFrequency").textContent = value("quoteFrequency");
+      }
+    }
+
+    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenuToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileMenuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    });
+
+    document.addEventListener("click", event => {
+      const actionEl = event.target.closest("[data-action]");
+      if (actionEl) {
+        if (mobileMenu.contains(actionEl)) {
+          mobileMenu.classList.remove("open");
+          mobileMenuToggle.setAttribute("aria-expanded", "false");
+          mobileMenuToggle.setAttribute("aria-label", "Open navigation menu");
+        }
+        const action = actionEl.dataset.action;
+        if (action === "gallery-top") setView("gallery", "top");
+        if (action === "home-top") setView("home", "top");
+        if (action === "home-section") setView("home", actionEl.dataset.target);
+        return;
+      }
+
+      const toggle = event.target.closest(".service-toggle");
+      if (toggle) {
+        const item = toggle.closest(".service-item");
+        const willOpen = !item.classList.contains("open");
+        document.querySelectorAll(".service-item").forEach(el => {
+          el.classList.remove("open");
+          el.querySelector(".service-panel").style.maxHeight = null;
+          el.querySelector(".service-toggle").setAttribute("aria-expanded", "false");
+        });
+        if (willOpen) {
+          item.classList.add("open");
+          const panel = item.querySelector(".service-panel");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+          toggle.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      const book = event.target.closest(".book-service");
+      if (book) {
+        appState.service = book.dataset.service;
+        renderChoices();
+        questionsForService();
+        showStep(1);
+        setView("home", "book");
+      }
+    });
+
+    form.addEventListener("click", event => {
+      const choice = event.target.closest(".choice");
+      if (choice) {
+        appState.service = choice.dataset.service;
+        renderChoices();
+        return;
+      }
+      if (event.target.closest(".back")) showStep(appState.step - 1);
+      if (event.target.closest(".next")) {
+        if (appState.step === 0) {
+          questionsForService();
+          showStep(1);
+        } else if (appState.step === 1) {
+          appState.answers = {
+            details: [...document.querySelectorAll("#dynamicServiceQuestions input")].map(input => input.value).join(" | "),
+            note: document.getElementById("detailsNote").value
+          };
+          showStep(2);
+        } else if (appState.step === 2) {
+          const required = ["quoteName","quotePhone","quoteEmail","quoteAddress"].map(id => document.getElementById(id));
+          const invalid = required.find(input => !input.value.trim() || !input.checkValidity());
+          if (invalid) {
+            invalid.reportValidity();
+            invalid.focus();
+            return;
+          }
+          showStep(3);
+        }
+      }
+    });
+
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      const button = document.getElementById("submitQuote");
+      button.disabled = true;
+      button.textContent = "Sending…";
+      const payload = {
+        access_key: "16f2ea29-29fd-4cc5-b128-ee6ffedf56dc",
+        subject: "New Quote Request — The Reset Co.",
+        from_name: "The Reset Co. Website",
+        botcheck: "",
+        "Selected service": appState.service,
+        "Property or project details": appState.answers.details || "",
+        "Additional service notes": appState.answers.note || "",
+        "Customer name": document.getElementById("quoteName").value.trim(),
+        "Phone number": document.getElementById("quotePhone").value.trim(),
+        "Email address": document.getElementById("quoteEmail").value.trim(),
+        "Service address or ZIP code": document.getElementById("quoteAddress").value.trim(),
+        "Preferred date": document.getElementById("quoteDate").value,
+        "Preferred time": document.getElementById("quoteTime").value,
+        "Cleaning frequency": document.getElementById("quoteFrequency").value,
+        "Additional notes": document.getElementById("quoteRequests").value.trim()
+      };
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) throw new Error("Submission unsuccessful");
+        form.innerHTML = `<div class="quote-success"><div><div style="width:70px;height:70px;border-radius:50%;background:#e9efdf;display:grid;place-items:center;margin:0 auto 18px;font-size:30px;color:#596d46">✓</div><h3 style="font-family:Georgia,serif;font-size:30px;margin:0 0 8px">Thank you!</h3><p style="color:var(--muted);max-width:520px">Your information has been submitted. The Reset Co. will be in touch as soon as possible about your request.</p></div></div>`;
+      } catch (error) {
+        button.disabled = false;
+        button.textContent = "Send Quote Request";
+        let message = form.querySelector(".submission-error");
+        if (!message) {
+          message = document.createElement("p");
+          message.className = "submission-error";
+          message.style.cssText = "color:#8f6257;margin:12px 0 0";
+          button.parentElement.appendChild(message);
+        }
+        message.textContent = "We could not send your request right now. Please try again.";
+      }
+    });
+
+    renderChoices();
+    questionsForService();
+  </script>
+ 
+</body></html>
